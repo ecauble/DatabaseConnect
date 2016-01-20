@@ -16,6 +16,7 @@
 		A118EAB81C4C7FB30044F4AE /* DatabaseConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118EAB71C4C7FB30044F4AE /* DatabaseConnectTests.swift */; };
 		A118EAC31C4C7FB30044F4AE /* DatabaseConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118EAC21C4C7FB30044F4AE /* DatabaseConnectUITests.swift */; };
 		A118EAD41C4C80030044F4AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118EAD31C4C80030044F4AE /* Constants.swift */; };
+		A1B5E88C1C4D679800E494D9 /* RegisterDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B5E88B1C4D679800E494D9 /* RegisterDevice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		A118EAC41C4C7FB30044F4AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A118EAD01C4C7FCF0044F4AE /* DatabaseConnect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DatabaseConnect-Bridging-Header.h"; sourceTree = "<group>"; };
 		A118EAD31C4C80030044F4AE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A1B5E88B1C4D679800E494D9 /* RegisterDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDevice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +104,9 @@
 		A118EA9E1C4C7FB30044F4AE /* DatabaseConnect */ = {
 			isa = PBXGroup;
 			children = (
-				A118EAD31C4C80030044F4AE /* Constants.swift */,
 				A118EA9F1C4C7FB30044F4AE /* AppDelegate.swift */,
+				A118EAD31C4C80030044F4AE /* Constants.swift */,
+				A1B5E88B1C4D679800E494D9 /* RegisterDevice.swift */,
 				A118EAA11C4C7FB30044F4AE /* ReigisterViewController.swift */,
 				A118EAA31C4C7FB30044F4AE /* Main.storyboard */,
 				A118EAA91C4C7FB30044F4AE /* Assets.xcassets */,
@@ -274,6 +277,7 @@
 				A118EAA21C4C7FB30044F4AE /* ReigisterViewController.swift in Sources */,
 				A118EAA01C4C7FB30044F4AE /* AppDelegate.swift in Sources */,
 				A118EAD41C4C80030044F4AE /* Constants.swift in Sources */,
+				A1B5E88C1C4D679800E494D9 /* RegisterDevice.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
