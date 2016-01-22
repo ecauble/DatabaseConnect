@@ -1,7 +1,6 @@
 <?php
 require("db/Conn.php");
 require("db/MySQLDAO.php");
-
 $returnValue = array();
 
 if(empty($_POST["user_name"]) || empty($_POST["password"]) )
@@ -10,16 +9,16 @@ if(empty($_POST["user_name"]) || empty($_POST["password"]) )
     echo json_encode($returnValue);
     return;
 }
-$registerString = htmlentities($_POST["user_name"]);
+
+$userName = htmlentities($_POST["user_name"]);
+$password = htmlentities($_POST["password"]);
 
 $dao = new MySQLDAO(Conn::$dbhost, Conn::$dbuser, Conn::$dbpass, Conn::$dbname);
 $dao->openConnection();
 
-$clientID = $dao->registerDevice($registerString);
-
+$clientID = $dao->registerNewUser($userName, $password);
+$userID = $dao->getUserID($userName);
 $dao->closeConnection();
-
-$returnValue["registerString"]=$registerString;
+$returnValue=$userID;
 echo json_encode($returnValue);
-return;
 ?>

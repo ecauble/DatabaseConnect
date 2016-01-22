@@ -20,6 +20,7 @@ $clientID = $dao->registerDevice($registerString);
 $dao->closeConnection();
 
 $returnValue["registerString"]=$registerString;
+//echo $clientID;
 echo json_encode($returnValue);
 return;
 ?>

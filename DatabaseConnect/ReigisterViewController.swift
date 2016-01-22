@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SVProgressHUD
 
 class RegisterViewController: UIViewController {
     
@@ -30,55 +33,23 @@ class RegisterViewController: UIViewController {
     
     //inserts new user in database
     @IBAction func registerNewUser(sender: AnyObject) {
-        let myUrl = NSURL(string: "http://localhost:8888/api/registerUser.php")
-        let request = NSMutableURLRequest(URL:myUrl!)
-        request.HTTPMethod = "POST"
-        
-        let postString = "user_name=\(userName.text!)&password=\(password.text!)"
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data:NSData?, response: NSURLResponse?, error:NSError?) -> Void in
-            
-            dispatch_async(dispatch_get_main_queue()) {
+        if(userName.text != "" && password.text != ""){
+        Alamofire.request(.POST, kLocalHost + "/api/registerUser.php", parameters: ["user_name": (userName.text!), "password" : password.text!])
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
                 
-                if error != nil
-                {
-                    // display an alert message
-                    print(error!.localizedDescription)
-                    return
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
                 }
-                do {
-
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
-                    
-                    if let parseJSON = json {
-                        if let objects  = parseJSON["userID"] as? [AnyObject]
-                        {
-                            for obj in objects
-                            {
-                                let temp = (obj["userID"] as! String)
-                                print(temp)
-                                // self.searchResults.append(fullName)
-                            }
-                            
-                        } else if(parseJSON["message"] != nil)
-                        {
-                            let errorMessage = parseJSON["message"] as? String
-                            if(errorMessage != nil)
-                            {
-                                // display an alert message
-                                
-                            }
-                        }
-                    }
-                    
-                } catch {
-                    print(error)
-                }
-            }
-        })
-        task.resume()
-
+       
+        }
+            SVProgressHUD.showSuccessWithStatus("Welcome \n\(userName.text!)")
+        }else{
+            SVProgressHUD.showErrorWithStatus("Please include username and password")
+        }
     }
 
 }

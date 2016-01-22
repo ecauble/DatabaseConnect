@@ -16,7 +16,10 @@
 		A118EAB81C4C7FB30044F4AE /* DatabaseConnectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118EAB71C4C7FB30044F4AE /* DatabaseConnectTests.swift */; };
 		A118EAC31C4C7FB30044F4AE /* DatabaseConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118EAC21C4C7FB30044F4AE /* DatabaseConnectUITests.swift */; };
 		A118EAD41C4C80030044F4AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118EAD31C4C80030044F4AE /* Constants.swift */; };
+		A1515ACE1C51E65F00F60BC3 /* MediaBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1515ACD1C51E65F00F60BC3 /* MediaBrowserViewController.swift */; };
+		A17059341C51DA800055CC0A /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17059331C51DA800055CC0A /* MediaViewController.swift */; };
 		A1B5E88C1C4D679800E494D9 /* RegisterDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B5E88B1C4D679800E494D9 /* RegisterDevice.swift */; };
+		F86E7B5323566749A342F4A3 /* Pods_DatabaseConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A4FC717C5C8C0AE57941C3 /* Pods_DatabaseConnect.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		520D6889B5BA90A6A6832B04 /* Pods-DatabaseConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DatabaseConnect.release.xcconfig"; path = "Pods/Target Support Files/Pods-DatabaseConnect/Pods-DatabaseConnect.release.xcconfig"; sourceTree = "<group>"; };
+		63A4FC717C5C8C0AE57941C3 /* Pods_DatabaseConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DatabaseConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A118EA9C1C4C7FB30044F4AE /* DatabaseConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DatabaseConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A118EA9F1C4C7FB30044F4AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A118EAA11C4C7FB30044F4AE /* ReigisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReigisterViewController.swift; sourceTree = "<group>"; };
@@ -53,7 +58,10 @@
 		A118EAC41C4C7FB30044F4AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A118EAD01C4C7FCF0044F4AE /* DatabaseConnect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DatabaseConnect-Bridging-Header.h"; sourceTree = "<group>"; };
 		A118EAD31C4C80030044F4AE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A1515ACD1C51E65F00F60BC3 /* MediaBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaBrowserViewController.swift; sourceTree = "<group>"; };
+		A17059331C51DA800055CC0A /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		A1B5E88B1C4D679800E494D9 /* RegisterDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDevice.swift; sourceTree = "<group>"; };
+		B942EE5E223B879E296B8800 /* Pods-DatabaseConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DatabaseConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DatabaseConnect/Pods-DatabaseConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F86E7B5323566749A342F4A3 /* Pods_DatabaseConnect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +90,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28D483509B706A61E691A985 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B942EE5E223B879E296B8800 /* Pods-DatabaseConnect.debug.xcconfig */,
+				520D6889B5BA90A6A6832B04 /* Pods-DatabaseConnect.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		701F02C1D0655FC68BB3A256 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				63A4FC717C5C8C0AE57941C3 /* Pods_DatabaseConnect.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A118EA931C4C7FB30044F4AE = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +114,8 @@
 				A118EAB61C4C7FB30044F4AE /* DatabaseConnectTests */,
 				A118EAC11C4C7FB30044F4AE /* DatabaseConnectUITests */,
 				A118EA9D1C4C7FB30044F4AE /* Products */,
+				28D483509B706A61E691A985 /* Pods */,
+				701F02C1D0655FC68BB3A256 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +136,8 @@
 				A118EAD31C4C80030044F4AE /* Constants.swift */,
 				A1B5E88B1C4D679800E494D9 /* RegisterDevice.swift */,
 				A118EAA11C4C7FB30044F4AE /* ReigisterViewController.swift */,
+				A17059331C51DA800055CC0A /* MediaViewController.swift */,
+				A1515ACD1C51E65F00F60BC3 /* MediaBrowserViewController.swift */,
 				A118EAA31C4C7FB30044F4AE /* Main.storyboard */,
 				A118EAA91C4C7FB30044F4AE /* Assets.xcassets */,
 				A118EAAB1C4C7FB30044F4AE /* LaunchScreen.storyboard */,
@@ -143,9 +173,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A118EAC71C4C7FB30044F4AE /* Build configuration list for PBXNativeTarget "DatabaseConnect" */;
 			buildPhases = (
+				1607F115528806E2D5477246 /* Check Pods Manifest.lock */,
 				A118EA981C4C7FB30044F4AE /* Sources */,
 				A118EA991C4C7FB30044F4AE /* Frameworks */,
 				A118EA9A1C4C7FB30044F4AE /* Resources */,
+				D361D3F800C806D11EE4FA81 /* Embed Pods Frameworks */,
+				ACD0338F2199076B5946134F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -268,16 +301,66 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1607F115528806E2D5477246 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ACD0338F2199076B5946134F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DatabaseConnect/Pods-DatabaseConnect-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D361D3F800C806D11EE4FA81 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DatabaseConnect/Pods-DatabaseConnect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A118EA981C4C7FB30044F4AE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A118EAA81C4C7FB30044F4AE /* DatabaseConnect.xcdatamodeld in Sources */,
+				A17059341C51DA800055CC0A /* MediaViewController.swift in Sources */,
 				A118EAA21C4C7FB30044F4AE /* ReigisterViewController.swift in Sources */,
 				A118EAA01C4C7FB30044F4AE /* AppDelegate.swift in Sources */,
 				A118EAD41C4C80030044F4AE /* Constants.swift in Sources */,
 				A1B5E88C1C4D679800E494D9 /* RegisterDevice.swift in Sources */,
+				A1515ACE1C51E65F00F60BC3 /* MediaBrowserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +498,7 @@
 		};
 		A118EAC81C4C7FB30044F4AE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B942EE5E223B879E296B8800 /* Pods-DatabaseConnect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -432,6 +516,7 @@
 		};
 		A118EAC91C4C7FB30044F4AE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 520D6889B5BA90A6A6832B04 /* Pods-DatabaseConnect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

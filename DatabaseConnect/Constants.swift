@@ -9,4 +9,6 @@
 import Foundation
 
 //set this to localhost's ip
-let kLocalHost : String = "10.0.1.26"
+let kLocalHostIP : String = "http://localhost:8888/10.0.1.26"
+let kLocalHost : String = "http://localhost:8888/"
+
