@@ -8,12 +8,14 @@
 
 import UIKit
 import CoreData
+import Alamofire
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var userID: Int?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -26,55 +28,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func registerTokenOnServer(registrationToken: String){
         
-        //my network address, may change depending on config 10.0.1.26:8888
-        let myUrl = NSURL(string: kLocalHost + "/api/registerClient.php")
-        
-        let request = NSMutableURLRequest(URL:myUrl!)
-        request.HTTPMethod = "POST"
-        
-        let postString = "registrationToken=\(registrationToken)";
-        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
-        
-        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data:NSData?, response: NSURLResponse?, error:NSError?) -> Void in
-            
-            dispatch_async(dispatch_get_main_queue()) {
-                
-                if error != nil
-                {
-                    // display an alert message
-                    print(error!.localizedDescription)
-                    return
-                }
-                do {
-                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
-                    
-                    if let parseJSON = json {
-                        if let objects  = parseJSON["registerString"] as? [AnyObject]
-                        {
-                            for obj in objects
-                            {
-                                let temp = (obj["registerString"] as! String)
-                                print(temp)
-                                // self.searchResults.append(fullName)
-                            }
-                            
-                        } else if(parseJSON["message"] != nil)
-                        {
-                            let errorMessage = parseJSON["message"] as? String
-                            if(errorMessage != nil)
-                            {
-                                // display an alert message
-                                
-                            }
+        userID = defaults.integerForKey("user_id")
+        if(registrationToken != "" && userID != 0){
+            Alamofire.request(.POST, kLocalHost + "/api/registerDevice.php", parameters: ["device_id": (registrationToken), "user_id" : userID!])
+                .responseJSON {
+                    response in
+                    switch response.result {
+                        //inserted user, write user id to defaults
+                    case .Success( _):
+                        if let value = response.result.value {
+                            let json = JSON(value)
+                            print("JSON: \(json)")
                         }
+                        defaults.setObject(registrationToken, forKey: "registration_token")
+                        
+                        
+                    case .Failure(let error):
+                        print("Request failed with error: \(error)")
                     }
-                    
-                } catch {
-                    print(error);
-                }
             }
-        })
-        task.resume()
+        }else{
+            print("error: failed to register device")
+        }
     }
 
     
@@ -82,6 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         let trimEnds = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
         let cleanToken = trimEnds.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        print("token : \(cleanToken)")
         registerTokenOnServer(cleanToken)
     }
     

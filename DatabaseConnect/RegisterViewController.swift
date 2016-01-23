@@ -11,7 +11,7 @@ import Alamofire
 import SwiftyJSON
 import SVProgressHUD
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate{
     
     
     
@@ -38,17 +38,21 @@ class RegisterViewController: UIViewController {
                 .responseJSON {
                     response in
                 switch response.result {
+                //inserted user, write user id to defaults
                 case .Success(let data):
                     let json = JSON(data)
                     let userID = json["user"]["user_id"].int!
-    
-                    print(userID)
+                    defaults.setObject(userID, forKey: "user_id")
+                    defaults.setObject(self.userName.text!, forKey: "user_name")
+                    //TODO: store password in coredata for safety
+                    defaults.setObject(self.password.text!, forKey: "password")
+
                  case .Failure(let error):
                     print("Request failed with error: \(error)")
-                    SVProgressHUD.showErrorWithStatus("Please include username and password")
-
                 }
             }
+        }else{
+            SVProgressHUD.showErrorWithStatus("Please include username and password")
         }
     }
 

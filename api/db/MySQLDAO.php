@@ -135,21 +135,7 @@ class MySQLDAO
         return $returnValue;
     }
     
-    //registers a user's unique device id from their phone/tablet
-    public function registerDevice($registrationToken)
-    {
-        
-        $sql       = "insert into Registered_Devices set device_id=?";
-        $statement = $this->conn->prepare($sql);
-        
-        if (!$statement)
-            throw new Exception($statement->error);
-        
-        $statement->bind_param("s", $registrationToken);
-        $returnValue = $statement->execute();
-        
-        return $returnValue;
-    }
+   
     
     //registers a user in the database
     public function registerNewUser($userName, $password)
@@ -166,7 +152,8 @@ class MySQLDAO
         return;
     }
     
-    //returns userID, will be used for push notifications, content, etc
+    
+    //returns userID from db
     public function getUserID($userName){
     	$returnValue = array();
     	$sql = "Select user_id from Users where user_name = ?";
@@ -186,6 +173,38 @@ class MySQLDAO
          
         return $returnValue[0];
     }//ends function getUserID
+    
+    
+     //registers a user's unique device id from their phone/tablet
+    public function registerNewDevice($deviceID, $userID)
+    {
+        
+        $sql       = "INSERT INTO Registered_Devices (device_id, user_id) VALUES (?, ?)";
+        $statement = $this->conn->prepare($sql);
+        
+        if (!$statement)
+            throw new Exception($statement->error);
+        
+        $statement->bind_param("si", $deviceID, $userID);
+        $returnValue = $statement->execute();
+        
+        return $returnValue;
+    }
+    
+    
+    //updates user info in Users table
+    public function addUserInfo($firstName, $lastName, $userID){
+     $sql       = "UPDATE Users SET first_name = ?, last_name = ? WHERE user_id = ?";
+        $statement = $this->conn->prepare($sql);
+        
+        if (!$statement)
+            throw new Exception($statement->error);
+        
+        $statement->bind_param("ssi", $firstName, $lastName, $userID);
+        $returnValue = $statement->execute();
+        return;
+    
+    }
     
 } //ends class MySQLDAO
 ?>
