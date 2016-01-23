@@ -163,29 +163,28 @@ class MySQLDAO
         
         $statement->bind_param("ss", $userName, $hash);
         $returnValue = $statement->execute();
-        
-        return $returnValue;
+        return;
     }
     
+    //returns userID, will be used for push notifications, content, etc
     public function getUserID($userName){
-          $returnValue = array();
-      $sql = "Select user_id from Users where user_name = ?";
-        
-        $statement = $this->conn->prepare($sql);
+    	$returnValue = array();
+    	$sql = "Select user_id from Users where user_name = ?";
+    	$statement = $this->conn->prepare($sql);
         
         if (!$statement)
             throw new Exception($statement->error);
         
         $statement->bind_param("s", $userName);
-        
         $statement->execute();
         
         $result = $statement->get_result();
         
         while ($myrow = $result->fetch_assoc()) {
-            $returnValue[] = $myrow;
+            $returnValue[0] = $myrow;
         }
-        return $returnValue;
+         
+        return $returnValue[0];
     }//ends function getUserID
     
 } //ends class MySQLDAO

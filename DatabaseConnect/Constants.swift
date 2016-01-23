@@ -8,7 +8,22 @@
 
 import Foundation
 
-//set this to localhost's ip
-let kLocalHostIP : String = "http://localhost:8888/10.0.1.26"
-let kLocalHost : String = "http://localhost:8888/"
+class Constants{
 
+    //set bool to localhost's ip only for testing, ignore warning
+    static func getLocalHostIP() -> String
+    {
+        let isLocal = true
+
+        if(isLocal){
+            return "http://localhost:8888/"
+        }else
+        {
+            //set to local machine's ip
+            return "http://10.0.1.26:8888/"
+        }
+    }
+
+}//ends class constants
+
+let kLocalHost = Constants.getLocalHostIP()

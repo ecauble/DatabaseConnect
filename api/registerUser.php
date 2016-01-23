@@ -19,6 +19,8 @@ $dao->openConnection();
 $clientID = $dao->registerNewUser($userName, $password);
 $userID = $dao->getUserID($userName);
 $dao->closeConnection();
-$returnValue=$userID;
+$returnValue["user"]=$userID;
+
 echo json_encode($returnValue);
+ 
 ?>

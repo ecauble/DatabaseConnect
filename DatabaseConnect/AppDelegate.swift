@@ -17,9 +17,79 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let pushSettings: UIUserNotificationSettings = UIUserNotificationSettings(forTypes: [.Alert, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(pushSettings)
+        UIApplication.sharedApplication().registerForRemoteNotifications()
         return true
     }
+    
+    func registerTokenOnServer(registrationToken: String){
+        
+        //my network address, may change depending on config 10.0.1.26:8888
+        let myUrl = NSURL(string: kLocalHost + "/api/registerClient.php")
+        
+        let request = NSMutableURLRequest(URL:myUrl!)
+        request.HTTPMethod = "POST"
+        
+        let postString = "registrationToken=\(registrationToken)";
+        request.HTTPBody = postString.dataUsingEncoding(NSUTF8StringEncoding);
+        
+        let task = NSURLSession.sharedSession().dataTaskWithRequest(request, completionHandler: { (data:NSData?, response: NSURLResponse?, error:NSError?) -> Void in
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                if error != nil
+                {
+                    // display an alert message
+                    print(error!.localizedDescription)
+                    return
+                }
+                do {
+                    let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .MutableContainers) as? NSDictionary
+                    
+                    if let parseJSON = json {
+                        if let objects  = parseJSON["registerString"] as? [AnyObject]
+                        {
+                            for obj in objects
+                            {
+                                let temp = (obj["registerString"] as! String)
+                                print(temp)
+                                // self.searchResults.append(fullName)
+                            }
+                            
+                        } else if(parseJSON["message"] != nil)
+                        {
+                            let errorMessage = parseJSON["message"] as? String
+                            if(errorMessage != nil)
+                            {
+                                // display an alert message
+                                
+                            }
+                        }
+                    }
+                    
+                } catch {
+                    print(error);
+                }
+            }
+        })
+        task.resume()
+    }
 
+    
+    // Successfully registered for push
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        let trimEnds = deviceToken.description.stringByTrimmingCharactersInSet(NSCharacterSet(charactersInString: "<>"))
+        let cleanToken = trimEnds.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+        registerTokenOnServer(cleanToken)
+    }
+    
+    // Failed to register for Push
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError) {
+        
+        NSLog("Failed to get token; error: %@", error) //Log an error for debugging purposes, user doesn't need to know
+    }
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

@@ -17,7 +17,7 @@
 		A118EAC31C4C7FB30044F4AE /* DatabaseConnectUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118EAC21C4C7FB30044F4AE /* DatabaseConnectUITests.swift */; };
 		A118EAD41C4C80030044F4AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118EAD31C4C80030044F4AE /* Constants.swift */; };
 		A1515ACE1C51E65F00F60BC3 /* MediaBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1515ACD1C51E65F00F60BC3 /* MediaBrowserViewController.swift */; };
-		A17059341C51DA800055CC0A /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17059331C51DA800055CC0A /* MediaViewController.swift */; };
+		A17059341C51DA800055CC0A /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17059331C51DA800055CC0A /* MediaPlayerViewController.swift */; };
 		A1B5E88C1C4D679800E494D9 /* RegisterDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1B5E88B1C4D679800E494D9 /* RegisterDevice.swift */; };
 		F86E7B5323566749A342F4A3 /* Pods_DatabaseConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63A4FC717C5C8C0AE57941C3 /* Pods_DatabaseConnect.framework */; };
 /* End PBXBuildFile section */
@@ -59,7 +59,7 @@
 		A118EAD01C4C7FCF0044F4AE /* DatabaseConnect-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DatabaseConnect-Bridging-Header.h"; sourceTree = "<group>"; };
 		A118EAD31C4C80030044F4AE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A1515ACD1C51E65F00F60BC3 /* MediaBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaBrowserViewController.swift; sourceTree = "<group>"; };
-		A17059331C51DA800055CC0A /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
+		A17059331C51DA800055CC0A /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
 		A1B5E88B1C4D679800E494D9 /* RegisterDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterDevice.swift; sourceTree = "<group>"; };
 		B942EE5E223B879E296B8800 /* Pods-DatabaseConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DatabaseConnect.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DatabaseConnect/Pods-DatabaseConnect.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -132,12 +132,12 @@
 		A118EA9E1C4C7FB30044F4AE /* DatabaseConnect */ = {
 			isa = PBXGroup;
 			children = (
+				A1CF33761C532E91002646DB /* Helpers */,
 				A118EA9F1C4C7FB30044F4AE /* AppDelegate.swift */,
-				A118EAD31C4C80030044F4AE /* Constants.swift */,
 				A1B5E88B1C4D679800E494D9 /* RegisterDevice.swift */,
 				A118EAA11C4C7FB30044F4AE /* ReigisterViewController.swift */,
-				A17059331C51DA800055CC0A /* MediaViewController.swift */,
 				A1515ACD1C51E65F00F60BC3 /* MediaBrowserViewController.swift */,
+				A17059331C51DA800055CC0A /* MediaPlayerViewController.swift */,
 				A118EAA31C4C7FB30044F4AE /* Main.storyboard */,
 				A118EAA91C4C7FB30044F4AE /* Assets.xcassets */,
 				A118EAAB1C4C7FB30044F4AE /* LaunchScreen.storyboard */,
@@ -164,6 +164,14 @@
 				A118EAC41C4C7FB30044F4AE /* Info.plist */,
 			);
 			path = DatabaseConnectUITests;
+			sourceTree = "<group>";
+		};
+		A1CF33761C532E91002646DB /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A118EAD31C4C80030044F4AE /* Constants.swift */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -355,7 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A118EAA81C4C7FB30044F4AE /* DatabaseConnect.xcdatamodeld in Sources */,
-				A17059341C51DA800055CC0A /* MediaViewController.swift in Sources */,
+				A17059341C51DA800055CC0A /* MediaPlayerViewController.swift in Sources */,
 				A118EAA21C4C7FB30044F4AE /* ReigisterViewController.swift in Sources */,
 				A118EAA01C4C7FB30044F4AE /* AppDelegate.swift in Sources */,
 				A118EAD41C4C80030044F4AE /* Constants.swift in Sources */,

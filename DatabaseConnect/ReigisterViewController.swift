@@ -34,21 +34,21 @@ class RegisterViewController: UIViewController {
     //inserts new user in database
     @IBAction func registerNewUser(sender: AnyObject) {
         if(userName.text != "" && password.text != ""){
-        Alamofire.request(.POST, kLocalHost + "/api/registerUser.php", parameters: ["user_name": (userName.text!), "password" : password.text!])
-            .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+            Alamofire.request(.POST, kLocalHost + "/api/registerUser.php", parameters: ["user_name": (userName.text!), "password" : password.text!])
+                .responseJSON {
+                    response in
+                switch response.result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    let userID = json["user"]["user_id"].int!
+    
+                    print(userID)
+                 case .Failure(let error):
+                    print("Request failed with error: \(error)")
+                    SVProgressHUD.showErrorWithStatus("Please include username and password")
+
                 }
-       
-        }
-            SVProgressHUD.showSuccessWithStatus("Welcome \n\(userName.text!)")
-        }else{
-            SVProgressHUD.showErrorWithStatus("Please include username and password")
+            }
         }
     }
 

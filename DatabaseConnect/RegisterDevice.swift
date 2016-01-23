@@ -13,7 +13,7 @@ class RegisterDevice {
   
     
     func registerDeviceID(userID : Int, deviceID : String) {
-        let myUrl = NSURL(string: "http://localhost:8888/ghstest/registerClient.php")
+        let myUrl = NSURL(string: kLocalHost+"api/registerClient.php")
         
         let request = NSMutableURLRequest(URL:myUrl!)
         request.HTTPMethod = "POST"

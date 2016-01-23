@@ -9,16 +9,23 @@
 import UIKit
 import Player
 
-let videoUrl = NSURL(string: kLocalHost + "/media/thrive-1.mp4")!
 
-class MediaViewController: UIViewController, PlayerDelegate {
+
+class MediaPlayerViewController: UIViewController, PlayerDelegate {
+    //variables
+    var fileName :String?
     
+    //constants
     private var player: Player!
+    
+    //outlets
+    
     
     // MARK: object lifecycle
     
     convenience init() {
         self.init(nibName: nil, bundle:nil)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -33,7 +40,9 @@ class MediaViewController: UIViewController, PlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let videoUrl = NSURL(string: kLocalHost + "media/" + fileName!)!
+
+        print(videoUrl)
         self.view.autoresizingMask = ([UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight])
         
         self.player = Player()
@@ -47,10 +56,12 @@ class MediaViewController: UIViewController, PlayerDelegate {
         self.player.setUrl(videoUrl)
         
         self.player.playbackLoops = true
-        
+        let swipeGestureRecognizer : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipeGestureReconizer:")
         let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleTapGestureRecognizer:")
+        swipeGestureRecognizer.direction = .Right
         tapGestureRecognizer.numberOfTapsRequired = 1
         self.player.view.addGestureRecognizer(tapGestureRecognizer)
+        self.player.view.addGestureRecognizer(swipeGestureRecognizer)
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -75,6 +86,14 @@ class MediaViewController: UIViewController, PlayerDelegate {
             self.player.pause()
         }
     }
+    
+    func handleSwipeGestureReconizer(gestureReconizer: UISwipeGestureRecognizer) {
+        self.player.pause()
+        self.dismissViewControllerAnimated(true, completion: nil)
+        print("swiped from right")
+    }
+    
+    
     
     // MARK: PlayerDelegate
     
