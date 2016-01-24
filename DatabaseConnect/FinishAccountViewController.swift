@@ -95,7 +95,6 @@ extension FinishAccountViewController : UIImagePickerControllerDelegate, UITextF
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         imageView.image = image
-        let rect = AVMakeRectWithAspectRatioInsideRect(image.size, imageView.bounds)
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
     }
     
