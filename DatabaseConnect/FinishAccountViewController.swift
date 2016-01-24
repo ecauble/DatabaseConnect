@@ -6,21 +6,27 @@
 //  Copyright © 2016 Eric Cauble. All rights reserved.
 //
 
+import AVFoundation
 import UIKit
 import Alamofire
 import SwiftyJSON
 import SVProgressHUD
 
 
-class FinishAccountViewController: UIViewController, UITextFieldDelegate{
+class FinishAccountViewController: UIViewController{
    
     //MARK: - Outlets
     @IBOutlet var firstNameTextField: UITextField!
     @IBOutlet var lastNameTextField: UITextField!
+    @IBOutlet var imageView: UIImageView!
+    
+    
+    //MARK: - Constants
     
     
     //MARK:- Variables
     var userID: Int?
+    var imagePicker: UIImagePickerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +35,9 @@ class FinishAccountViewController: UIViewController, UITextFieldDelegate{
         let swipeGestureRecognizer : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipeGestureReconizer:")
         swipeGestureRecognizer.direction = .Right
         self.view.addGestureRecognizer(swipeGestureRecognizer)
+        imageView.contentMode = .ScaleAspectFit
+
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -63,6 +72,15 @@ class FinishAccountViewController: UIViewController, UITextFieldDelegate{
     }
     
     
+    @IBAction func takePhoto(sender: UIButton) {
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .Camera
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    
     //MARK:- SwipeGestureReconizer
     func handleSwipeGestureReconizer(gestureReconizer: UISwipeGestureRecognizer) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -70,3 +88,31 @@ class FinishAccountViewController: UIViewController, UITextFieldDelegate{
     }
     
 }
+
+//MARK:- Extensions
+
+extension FinishAccountViewController : UIImagePickerControllerDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
+        imageView.image = image
+        let rect = AVMakeRectWithAspectRatioInsideRect(image.size, imageView.bounds)
+        imagePicker.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

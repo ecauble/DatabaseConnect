@@ -26,5 +26,5 @@ class Constants{
 
 
 //global constants for convenience
-let kLocalHost = Constants.getLocalHostIP(false)
+let kLocalHost = Constants.getLocalHostIP(true)
 let defaults = NSUserDefaults.standardUserDefaults()

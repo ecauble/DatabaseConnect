@@ -27,9 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func registerTokenOnServer(registrationToken: String){
-        
+        let isRegistered = defaults.boolForKey("is_registered")
         userID = defaults.integerForKey("user_id")
-        if(registrationToken != "" && userID != 0){
+        if(!isRegistered && registrationToken != "" && userID != 0){
             Alamofire.request(.POST, kLocalHost + "/api/registerDevice.php", parameters: ["device_id": (registrationToken), "user_id" : userID!])
                 .responseJSON {
                     response in
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             print("JSON: \(json)")
                         }
                         defaults.setObject(registrationToken, forKey: "registration_token")
-                        
+                        defaults.setBool(true, forKey: "is_registered")
                         
                     case .Failure(let error):
                         print("Request failed with error: \(error)")
@@ -49,6 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }else{
             print("error: failed to register device")
+            defaults.setBool(false, forKey: "is_registered")
         }
     }
 
