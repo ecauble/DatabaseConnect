@@ -25,7 +25,18 @@ class SignInViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         if let defUser = defaults.stringForKey("user_name"){
             emailAddressTextField.text = defUser
+            
         }
+        let swipeGestureRecognizer : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipeGestureReconizer:")
+        swipeGestureRecognizer.direction = .Right
+        self.view.addGestureRecognizer(swipeGestureRecognizer)
+    }
+    
+    
+    //MARK:- SwipeGestureReconizer
+    func handleSwipeGestureReconizer(gestureReconizer: UISwipeGestureRecognizer) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        print("swiped from right")
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,6 +48,4 @@ class SignInViewController: UIViewController {
     @IBAction func signInButtonPressed(sender: AnyObject) {
     
     }
-    
-    
 }

@@ -18,7 +18,7 @@ class Constants{
         {
             /** set to local machine's ip
             ipconfig getifaddr en0 **/
-            return "http://10.0.1.26:8888/"
+            return "172.16.31.108:8888/"
         }
     }
 

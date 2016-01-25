@@ -35,9 +35,14 @@ class FinishAccountViewController: UIViewController{
         let swipeGestureRecognizer : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipeGestureReconizer:")
         swipeGestureRecognizer.direction = .Right
         self.view.addGestureRecognizer(swipeGestureRecognizer)
-        imageView.contentMode = .ScaleAspectFit
-
-
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        imageView.userInteractionEnabled = true
+        imageView.addGestureRecognizer(tapGestureRecognizer)
+        imageView.contentMode = .ScaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.autoresizesSubviews = false
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -72,20 +77,14 @@ class FinishAccountViewController: UIViewController{
     }
     
     
-    @IBAction func takePhoto(sender: UIButton) {
-        imagePicker =  UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .Camera
-        
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
-    
     
     //MARK:- SwipeGestureReconizer
     func handleSwipeGestureReconizer(gestureReconizer: UISwipeGestureRecognizer) {
         self.dismissViewControllerAnimated(true, completion: nil)
         print("swiped from right")
     }
+    
+    
     
 }
 
@@ -94,9 +93,34 @@ class FinishAccountViewController: UIViewController{
 extension FinishAccountViewController : UIImagePickerControllerDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        imageView.image = image
+        imageView.image = resizeImage(image, newWidth: 68)
         imagePicker.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        
+        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
+        image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
+
+    
+    func imageTapped(img: AnyObject)
+    {
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .SavedPhotosAlbum
+        //photo selected dismiss pickerView
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
     
 }
 

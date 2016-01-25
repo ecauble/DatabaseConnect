@@ -14,12 +14,12 @@ import SVProgressHUD
 
 class MediaBrowserViewController: UIViewController {
     
-    //instance variables
-    var searchResults = [String]()
-    
-    //outlets
+    //MARK: - Outlets
     @IBOutlet var tableView: UITableView!
     
+    
+    //MARK:- variables
+    var searchResults = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,15 +46,17 @@ class MediaBrowserViewController: UIViewController {
     }
 }
 
+//MARK: - Extensions
+
 extension MediaBrowserViewController : UITableViewDelegate, UITableViewDataSource{
     
+    //MARK: - Tableview
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-        
         cell.textLabel?.text = self.searchResults[indexPath.row] as String
         cell.imageView?.image = UIImage(named: "thumbnail")
         return cell

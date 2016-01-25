@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import Alamofire
+import SwiftyJSON
+import SVProgressHUD
 
 
 class ResetPasswordViewController: UIViewController {
@@ -34,7 +36,8 @@ class ResetPasswordViewController: UIViewController {
 
     //MARK:- Actions
     @IBAction func resetButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        SVProgressHUD.showSuccessWithStatus("An email with instructions on reseting your password has been sent.")
+        //self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     

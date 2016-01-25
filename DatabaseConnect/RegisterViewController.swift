@@ -13,8 +13,6 @@ import SVProgressHUD
 
 class RegisterViewController: UIViewController, UITextFieldDelegate{
     
-    
-    
     //outlets
     @IBOutlet var userName: UITextField!
     @IBOutlet var password: UITextField!
