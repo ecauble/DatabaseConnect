@@ -25,7 +25,6 @@ class SignInViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         if let defUser = defaults.stringForKey("user_name"){
             emailAddressTextField.text = defUser
-            
         }
         let swipeGestureRecognizer : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "handleSwipeGestureReconizer:")
         swipeGestureRecognizer.direction = .Right

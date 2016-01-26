@@ -42,7 +42,6 @@ class FinishAccountViewController: UIViewController{
         imageView.contentMode = .ScaleAspectFill
         imageView.clipsToBounds = true
         imageView.autoresizesSubviews = false
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,16 +74,13 @@ class FinishAccountViewController: UIViewController{
             SVProgressHUD.showErrorWithStatus("Please include first name and last name")
         }
     }
-    
-    
+
     
     //MARK:- SwipeGestureReconizer
     func handleSwipeGestureReconizer(gestureReconizer: UISwipeGestureRecognizer) {
         self.dismissViewControllerAnimated(true, completion: nil)
         print("swiped from right")
     }
-    
-    
     
 }
 

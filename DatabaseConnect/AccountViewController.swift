@@ -65,7 +65,6 @@ extension AccountViewController : UIImagePickerControllerDelegate, UITextFieldDe
     }
     
     
-    
     func imageTapped(img: AnyObject)
     {
         imagePicker =  UIImagePickerController()

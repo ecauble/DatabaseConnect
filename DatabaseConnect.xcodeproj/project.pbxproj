@@ -19,6 +19,7 @@
 		A118EAD41C4C80030044F4AE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A118EAD31C4C80030044F4AE /* Constants.swift */; };
 		A1515ACE1C51E65F00F60BC3 /* MediaBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1515ACD1C51E65F00F60BC3 /* MediaBrowserViewController.swift */; };
 		A17059341C51DA800055CC0A /* MediaPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17059331C51DA800055CC0A /* MediaPlayerViewController.swift */; };
+		A1A718581C56D0AF00E6AC07 /* ListConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A718571C56D0AF00E6AC07 /* ListConnectionsViewController.swift */; };
 		A1DF0E761C54015700EA3A39 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF0E751C54015700EA3A39 /* ResetPasswordViewController.swift */; };
 		A1DF0E781C54016600EA3A39 /* FinishAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF0E771C54016600EA3A39 /* FinishAccountViewController.swift */; };
 		A1DF0E7A1C54017700EA3A39 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DF0E791C54017700EA3A39 /* SignInViewController.swift */; };
@@ -64,6 +65,7 @@
 		A118EAD31C4C80030044F4AE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A1515ACD1C51E65F00F60BC3 /* MediaBrowserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaBrowserViewController.swift; sourceTree = "<group>"; };
 		A17059331C51DA800055CC0A /* MediaPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlayerViewController.swift; sourceTree = "<group>"; };
+		A1A718571C56D0AF00E6AC07 /* ListConnectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListConnectionsViewController.swift; sourceTree = "<group>"; };
 		A1DF0E751C54015700EA3A39 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		A1DF0E771C54016600EA3A39 /* FinishAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishAccountViewController.swift; sourceTree = "<group>"; };
 		A1DF0E791C54017700EA3A39 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				A118EA9F1C4C7FB30044F4AE /* AppDelegate.swift */,
 				A11108761C540CC3005E03DF /* AccountViewController.swift */,
 				A1DF0E771C54016600EA3A39 /* FinishAccountViewController.swift */,
+				A1A718571C56D0AF00E6AC07 /* ListConnectionsViewController.swift */,
 				A1515ACD1C51E65F00F60BC3 /* MediaBrowserViewController.swift */,
 				A17059331C51DA800055CC0A /* MediaPlayerViewController.swift */,
 				A118EAA11C4C7FB30044F4AE /* RegisterViewController.swift */,
@@ -388,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A118EAA81C4C7FB30044F4AE /* DatabaseConnect.xcdatamodeld in Sources */,
+				A1A718581C56D0AF00E6AC07 /* ListConnectionsViewController.swift in Sources */,
 				A17059341C51DA800055CC0A /* MediaPlayerViewController.swift in Sources */,
 				A118EAA21C4C7FB30044F4AE /* RegisterViewController.swift in Sources */,
 				A1DF0E761C54015700EA3A39 /* ResetPasswordViewController.swift in Sources */,

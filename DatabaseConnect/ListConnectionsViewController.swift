@@ -1,18 +1,17 @@
 //
-//  MediaBrowserViewController.swift
+//  ListConnectionsViewController.swift
 //  DatabaseConnect
 //
-//  Created by Eric Cauble on 1/21/16.
+//  Created by Eric Cauble on 1/25/16.
 //  Copyright © 2016 Eric Cauble. All rights reserved.
 //
 
 import UIKit
+import CoreData
 import Alamofire
 import SwiftyJSON
-import SVProgressHUD
 
-
-class MediaBrowserViewController: UIViewController {
+class ListConnectionsViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet var tableView: UITableView!
@@ -34,7 +33,7 @@ class MediaBrowserViewController: UIViewController {
             case .Success(let data):
                 let json = JSON(data)
                 for file in json["files"]{
-                self.searchResults.append(file.1.string!)
+                    self.searchResults.append(file.1.string!)
                 }
                 self.tableView.reloadData()
             case .Failure(let error):
@@ -48,7 +47,7 @@ class MediaBrowserViewController: UIViewController {
 
 //MARK: - Extensions
 
-extension MediaBrowserViewController : UITableViewDelegate, UITableViewDataSource{
+extension ListConnectionsViewController : UITableViewDelegate, UITableViewDataSource{
     
     //MARK: - Tableview
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +62,7 @@ extension MediaBrowserViewController : UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    print("Selection made")
+        print("Selection made")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -71,12 +70,12 @@ extension MediaBrowserViewController : UITableViewDelegate, UITableViewDataSourc
         {
             if let path = self.tableView.indexPathForSelectedRow{
                 let playerView = segue.destinationViewController as! MediaPlayerViewController
-                 playerView.fileName = self.searchResults[path.row]
+                playerView.fileName = self.searchResults[path.row]
                 print(playerView.fileName)
-             }
+            }
             
         }
         
     }
-
+    
 }
