@@ -17,7 +17,7 @@ class ResetPasswordViewController: UIViewController {
     //MARK:- Outlets
     @IBOutlet var emailAddressTextField: UITextField!
     
-    
+    // MARK:- View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,6 +28,7 @@ class ResetPasswordViewController: UIViewController {
         swipeGestureRecognizer.direction = .Right
         self.view.addGestureRecognizer(swipeGestureRecognizer)
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

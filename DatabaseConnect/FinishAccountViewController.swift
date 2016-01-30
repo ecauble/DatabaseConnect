@@ -51,7 +51,6 @@ class FinishAccountViewController: UIViewController{
     
     //MARK:- Actions
     @IBAction func doneButtonPressed(sender: AnyObject) {
-        
         if(firstNameTextField.text != "" && lastNameTextField.text != ""){
             Alamofire.request(.POST, kLocalHost + "/api/submitUserInfo.php", parameters: ["first_name": (firstNameTextField.text!), "last_name" : lastNameTextField.text!, "user_id" : userID!])
                 .responseJSON {
@@ -75,7 +74,6 @@ class FinishAccountViewController: UIViewController{
         }
     }
 
-    
     //MARK:- SwipeGestureReconizer
     func handleSwipeGestureReconizer(gestureReconizer: UISwipeGestureRecognizer) {
         self.dismissViewControllerAnimated(true, completion: nil)
@@ -85,7 +83,6 @@ class FinishAccountViewController: UIViewController{
 }
 
 //MARK:- Extensions
-
 extension FinishAccountViewController : UIImagePickerControllerDelegate, UITextFieldDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
@@ -105,8 +102,6 @@ extension FinishAccountViewController : UIImagePickerControllerDelegate, UITextF
         
         return newImage
     }
-    
-
     
     func imageTapped(img: AnyObject)
     {

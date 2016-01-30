@@ -21,12 +21,15 @@ class MediaBrowserViewController: UIViewController {
     //MARK:- variables
     var searchResults = [String]()
     
+    
+    // MARK:- View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMedia()
         
     }
     
+    //loads video files from request
     func loadMedia(){
         Alamofire.request(.POST, kLocalHost + "/api/findMedia.php", parameters: nil).responseJSON {
             response in
@@ -46,11 +49,11 @@ class MediaBrowserViewController: UIViewController {
     
 }
 
-//MARK: - Extensions
 
+//MARK: - Extensions
 extension MediaBrowserViewController : UITableViewDelegate, UITableViewDataSource{
     
-    //MARK: - Tableview
+    //MARK: - TableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResults.count
     }

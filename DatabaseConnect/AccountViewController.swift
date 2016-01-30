@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import SVProgressHUD
+
 
 class AccountViewController: UIViewController {
     
@@ -17,6 +21,7 @@ class AccountViewController: UIViewController {
     //MARK:- Variables
     var imagePicker: UIImagePickerController!
 
+    // MARK:- View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

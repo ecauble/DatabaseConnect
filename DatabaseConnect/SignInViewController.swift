@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import Alamofire
+import SwiftyJSON
+import SVProgressHUD
 
 class SignInViewController: UIViewController {
     
@@ -17,9 +19,8 @@ class SignInViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     
     //MARK:- Variables
-    var userName: String?
-    var passWord: String?
-    
+   
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -45,6 +46,34 @@ class SignInViewController: UIViewController {
     
     //MARK:- Actions
     @IBAction func signInButtonPressed(sender: AnyObject) {
-    
+        if(emailAddressTextField.text != "" && passwordTextField.text != ""){
+            Alamofire.request(.POST, kLocalHost + "/api/logIn.php", parameters: ["user_name": (emailAddressTextField.text!), "password" : passwordTextField.text!])
+                .responseJSON {
+                    response in
+                    switch response.result {
+                        //read json to get user_id, store in defaults
+                    case .Success:
+                        if let value = response.result.value {
+                            let json = JSON(value)
+                            print("JSON: \(json)")
+                        }
+                    case .Failure(let error):
+                        print("Request failed with error: \(error)")
+                    }
+            }
+        }else{
+            SVProgressHUD.showErrorWithStatus("Please include username and password")
+        }
+
     }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if (identifier == "showRootView" ) && (emailAddressTextField.text == "" || passwordTextField.text == ""){
+            SVProgressHUD.showErrorWithStatus("Please include email address and password")
+            return false
+        }else{
+            return true
+        }
+    }
+    
 }

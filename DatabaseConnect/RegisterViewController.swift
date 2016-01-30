@@ -17,7 +17,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
     @IBOutlet var userName: UITextField!
     @IBOutlet var password: UITextField!
 
-
+    // MARK:- View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -28,11 +28,20 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
 
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if (identifier == "showRegisterDetails" ) && (userName.text == "" || password.text == ""){
+            return false
+        }else{
+            return true
+        }
+    }
+ 
+
     
     //inserts new user in database
     @IBAction func registerNewUser(sender: AnyObject) {
         if(userName.text != "" && password.text != ""){
-            Alamofire.request(.POST, kLocalHost + "/api/registerUser.php", parameters: ["user_name": (userName.text!), "password" : password.text!])
+            Alamofire.request(.POST, kURL + "/api/registerUser.php", parameters: ["user_name": (userName.text!), "password" : password.text!])
                 .responseJSON {
                     response in
                 switch response.result {
@@ -54,5 +63,5 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
         }
     }
 
-}
+}//ends class
 

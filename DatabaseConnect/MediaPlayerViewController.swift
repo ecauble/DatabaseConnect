@@ -22,7 +22,6 @@ class MediaPlayerViewController: UIViewController, PlayerDelegate {
     
     
     // MARK: object lifecycle
-    
     convenience init() {
         self.init(nibName: nil, bundle:nil)
         
@@ -36,8 +35,7 @@ class MediaPlayerViewController: UIViewController, PlayerDelegate {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
-    // MARK: view lifecycle
-    
+    // MARK:- View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         let videoUrl = NSURL(string: kLocalHost + "media/" + fileName!)!

@@ -20,6 +20,7 @@ class ListConnectionsViewController: UIViewController {
     //MARK:- variables
     var searchResults = [String]()
     
+    // MARK:- view lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         loadMedia()

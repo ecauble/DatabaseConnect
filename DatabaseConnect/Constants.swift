@@ -28,3 +28,4 @@ class Constants{
 //global constants for convenience
 let kLocalHost = Constants.getLocalHostIP(true)
 let defaults = NSUserDefaults.standardUserDefaults()
+let kURL = "https://ecauble.com"
