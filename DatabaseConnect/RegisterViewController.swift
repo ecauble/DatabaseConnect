@@ -41,7 +41,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate{
     //inserts new user in database
     @IBAction func registerNewUser(sender: AnyObject) {
         if(userName.text != "" && password.text != ""){
-            Alamofire.request(.POST, kURL + "/api/registerUser.php", parameters: ["user_name": (userName.text!), "password" : password.text!])
+            Alamofire.request(.POST, kLocalHost + "/api/registerUser.php", parameters: ["user_name": (userName.text!), "password" : password.text!])
                 .responseJSON {
                     response in
                 switch response.result {

@@ -16,9 +16,8 @@ class Constants{
             return "http://localhost:8888/"
         }else
         {
-            /** set to local machine's ip
-            ipconfig getifaddr en0 **/
-            return "172.16.31.108:8888/"
+            /** testing on a remote server **/
+            return "https://ecauble.com"
         }
     }
 
@@ -26,6 +25,6 @@ class Constants{
 
 
 //global constants for convenience
-let kLocalHost = Constants.getLocalHostIP(true)
+let kLocalHost = Constants.getLocalHostIP(false)
 let defaults = NSUserDefaults.standardUserDefaults()
-let kURL = "https://ecauble.com"
+
