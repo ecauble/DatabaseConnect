@@ -38,7 +38,7 @@ class MediaPlayerViewController: UIViewController, PlayerDelegate {
     // MARK:- View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let videoUrl = NSURL(string: kLocalHost + "media/" + fileName!)!
+        let videoUrl = NSURL(string: kLocalHost + "/media/" + fileName!)!
 
         print(videoUrl)
         self.view.autoresizingMask = ([UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight])
