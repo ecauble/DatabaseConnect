@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AVFoundation
 import SwiftyJSON
 import SVProgressHUD
 
@@ -50,6 +51,25 @@ class MediaBrowserViewController: UIViewController {
 }
 
 
+//MARK:- TODO
+func getImageFromURL(path : String)->UIImage{
+    var image : UIImage?
+    var err: NSError? = nil
+    do {
+        let asset = AVURLAsset(URL: NSURL(fileURLWithPath: path), options: nil)
+        let imgGenerator = AVAssetImageGenerator(asset: asset)
+        let cgImage = try imgGenerator.copyCGImageAtTime(CMTimeMake(0, 1), actualTime: nil)
+        image = UIImage(CGImage: cgImage)
+        //let imageView = UIImageView(image: image)
+        // lay out this image view, or if it already exists, set its image property to uiImage
+    } catch let error as NSError {
+        print("Error generating thumbnail: \(error)")
+        image = nil
+    }
+    return image!
+}
+
+
 //MARK: - Extensions
 extension MediaBrowserViewController : UITableViewDelegate, UITableViewDataSource{
     
@@ -61,6 +81,7 @@ extension MediaBrowserViewController : UITableViewDelegate, UITableViewDataSourc
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell: UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
         cell.textLabel?.text = self.searchResults[indexPath.row] as String
+        //let thumbnail = getImageFromURL(kLocalHost + "/media/" + self.searchResults[indexPath.row])
         cell.imageView?.image = UIImage(named: "thumbnail")
         return cell
     }

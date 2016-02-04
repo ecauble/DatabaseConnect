@@ -11,10 +11,12 @@ import CoreData
 import Alamofire
 import SwiftyJSON
 
-class ListConnectionsViewController: UIViewController {
+class FindFriendsViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var searchBox: UITextField!
+    
     
     
     //MARK:- variables
@@ -28,7 +30,7 @@ class ListConnectionsViewController: UIViewController {
     }
     
     func loadMedia(){
-        Alamofire.request(.POST, kLocalHost + "/api/findMedia.php", parameters: nil).responseJSON {
+        Alamofire.request(.POST, kLocalHost + "/api/findFriends.php", parameters: nil).responseJSON {
             response in
             switch response.result {
             case .Success(let data):
@@ -48,7 +50,7 @@ class ListConnectionsViewController: UIViewController {
 
 //MARK: - Extensions
 
-extension ListConnectionsViewController : UITableViewDelegate, UITableViewDataSource{
+extension FindFriendsViewController : UITableViewDelegate, UITableViewDataSource{
     
     //MARK: - Tableview
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,6 +67,11 @@ extension ListConnectionsViewController : UITableViewDelegate, UITableViewDataSo
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("Selection made")
     }
+    
+    @IBAction func searchButtonPressed(sender: AnyObject) {
+    }
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showMedia"

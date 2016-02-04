@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hTh-dw-5He">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -653,7 +653,7 @@
         <!--List Friends-->
         <scene sceneID="d0z-Lj-gCH">
             <objects>
-                <viewController title="List Friends" id="RBm-3Z-YLx" customClass="ListConnectionsViewController" customModule="DatabaseConnect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="List Friends" id="RBm-3Z-YLx" customClass="FindFriendsViewController" customModule="DatabaseConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2BM-hK-473"/>
                         <viewControllerLayoutGuide type="bottom" id="rjk-Pi-pfW"/>
@@ -671,7 +671,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="39"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G7Z-AO-KmQ" id="Mhe-b9-UIk">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="38.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -684,26 +684,47 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIND FRIENDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWi-o6-LwK">
                                 <rect key="frame" x="20" y="82" width="560" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="Ddc-tR-tiu"/>
+                                    <constraint firstAttribute="height" constant="29" id="8hj-be-r4a"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search friends by name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W3l-fG-wOp">
+                                <rect key="frame" x="20" y="44" width="499" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFj-0t-NBQ">
+                                <rect key="frame" x="533" y="44" width="48" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="48" id="JwZ-Ib-Xn2"/>
+                                </constraints>
+                                <state key="normal" title="Search"/>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="RBm-3Z-YLx" eventType="touchUpInside" id="fcy-FE-tis"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yg5-JC-hFn" firstAttribute="top" secondItem="nWi-o6-LwK" secondAttribute="bottom" constant="21" id="DDW-2r-PJa"/>
-                            <constraint firstItem="yg5-JC-hFn" firstAttribute="trailing" secondItem="nWi-o6-LwK" secondAttribute="trailing" id="Rdh-wh-liX"/>
-                            <constraint firstItem="yg5-JC-hFn" firstAttribute="leading" secondItem="nWi-o6-LwK" secondAttribute="leading" id="Ygf-LA-ggO"/>
-                            <constraint firstItem="nWi-o6-LwK" firstAttribute="trailing" secondItem="2dc-oI-YVt" secondAttribute="trailingMargin" id="dIH-Ow-yFZ"/>
-                            <constraint firstItem="nWi-o6-LwK" firstAttribute="top" secondItem="2BM-hK-473" secondAttribute="bottom" constant="62" id="guX-md-43h"/>
-                            <constraint firstItem="yg5-JC-hFn" firstAttribute="bottom" secondItem="rjk-Pi-pfW" secondAttribute="top" id="heH-uz-wDw"/>
-                            <constraint firstItem="nWi-o6-LwK" firstAttribute="leading" secondItem="2dc-oI-YVt" secondAttribute="leadingMargin" id="yDS-oF-eQn"/>
+                            <constraint firstItem="nWi-o6-LwK" firstAttribute="trailing" secondItem="2dc-oI-YVt" secondAttribute="trailingMargin" id="7tX-o4-2mo"/>
+                            <constraint firstItem="W3l-fG-wOp" firstAttribute="leading" secondItem="nWi-o6-LwK" secondAttribute="leading" id="Gi3-rY-e9R"/>
+                            <constraint firstItem="nWi-o6-LwK" firstAttribute="top" secondItem="W3l-fG-wOp" secondAttribute="bottom" constant="8" symbolic="YES" id="IT9-CK-aU7"/>
+                            <constraint firstItem="nWi-o6-LwK" firstAttribute="leading" secondItem="2dc-oI-YVt" secondAttribute="leadingMargin" id="Ig7-mL-8IM"/>
+                            <constraint firstItem="jFj-0t-NBQ" firstAttribute="leading" secondItem="W3l-fG-wOp" secondAttribute="trailing" constant="14" id="KCC-ZA-X4I"/>
+                            <constraint firstItem="yg5-JC-hFn" firstAttribute="top" secondItem="nWi-o6-LwK" secondAttribute="bottom" constant="21" id="KCJ-aV-aou"/>
+                            <constraint firstItem="yg5-JC-hFn" firstAttribute="trailing" secondItem="nWi-o6-LwK" secondAttribute="trailing" id="M4L-O2-3GL"/>
+                            <constraint firstItem="W3l-fG-wOp" firstAttribute="top" secondItem="jFj-0t-NBQ" secondAttribute="top" id="Z1z-fU-qL6"/>
+                            <constraint firstItem="W3l-fG-wOp" firstAttribute="top" secondItem="2BM-hK-473" secondAttribute="bottom" constant="24" id="eeJ-St-FKU"/>
+                            <constraint firstItem="yg5-JC-hFn" firstAttribute="bottom" secondItem="rjk-Pi-pfW" secondAttribute="top" id="hti-pc-RaA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jFj-0t-NBQ" secondAttribute="trailing" constant="-1" id="iHv-am-MYW"/>
+                            <constraint firstItem="nWi-o6-LwK" firstAttribute="leading" secondItem="yg5-JC-hFn" secondAttribute="leading" id="kKl-fx-1OM"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Find Friends" image="779-users-toolbar-selected" selectedImage="779-users" id="KHs-Bj-KIS"/>
                     <connections>
+                        <outlet property="searchBox" destination="W3l-fG-wOp" id="iZC-Go-1vM"/>
                         <outlet property="tableView" destination="yg5-JC-hFn" id="mWe-Rk-eZf"/>
                     </connections>
                 </viewController>
