@@ -5,7 +5,7 @@ target 'DatabaseConnect' do
 	pod 'Alamofire', '~> 3.0'
 	pod 'Player'
 	pod 'SVProgressHUD'
-    pod 'SwiftyJSON'
+	pod 'SwiftyJSON'
 end
 
 

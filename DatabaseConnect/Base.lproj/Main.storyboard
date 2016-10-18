@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hTh-dw-5He">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hTh-dw-5He">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -671,7 +671,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="39"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G7Z-AO-KmQ" id="Mhe-b9-UIk">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="39"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="38.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -681,45 +681,48 @@
                                     <outlet property="delegate" destination="RBm-3Z-YLx" id="SAJ-Sz-TU7"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIND FRIENDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWi-o6-LwK">
-                                <rect key="frame" x="20" y="82" width="560" height="29"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search friends by name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W3l-fG-wOp">
+                                <rect key="frame" x="19" y="94" width="499" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFj-0t-NBQ">
+                                <rect key="frame" x="532" y="94" width="48" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="8hj-be-r4a"/>
+                                    <constraint firstAttribute="width" constant="48" id="xut-db-0Hx"/>
+                                </constraints>
+                                <state key="normal" title="Search">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="RBm-3Z-YLx" eventType="touchUpInside" id="fcy-FE-tis"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FIND FRIENDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nWi-o6-LwK">
+                                <rect key="frame" x="20" y="57" width="560" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="Cep-J3-grb"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="search friends by name" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="W3l-fG-wOp">
-                                <rect key="frame" x="20" y="44" width="499" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jFj-0t-NBQ">
-                                <rect key="frame" x="533" y="44" width="48" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="48" id="JwZ-Ib-Xn2"/>
-                                </constraints>
-                                <state key="normal" title="Search"/>
-                                <connections>
-                                    <action selector="searchButtonPressed:" destination="RBm-3Z-YLx" eventType="touchUpInside" id="fcy-FE-tis"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="nWi-o6-LwK" firstAttribute="trailing" secondItem="2dc-oI-YVt" secondAttribute="trailingMargin" id="7tX-o4-2mo"/>
-                            <constraint firstItem="W3l-fG-wOp" firstAttribute="leading" secondItem="nWi-o6-LwK" secondAttribute="leading" id="Gi3-rY-e9R"/>
-                            <constraint firstItem="nWi-o6-LwK" firstAttribute="top" secondItem="W3l-fG-wOp" secondAttribute="bottom" constant="8" symbolic="YES" id="IT9-CK-aU7"/>
-                            <constraint firstItem="nWi-o6-LwK" firstAttribute="leading" secondItem="2dc-oI-YVt" secondAttribute="leadingMargin" id="Ig7-mL-8IM"/>
-                            <constraint firstItem="jFj-0t-NBQ" firstAttribute="leading" secondItem="W3l-fG-wOp" secondAttribute="trailing" constant="14" id="KCC-ZA-X4I"/>
-                            <constraint firstItem="yg5-JC-hFn" firstAttribute="top" secondItem="nWi-o6-LwK" secondAttribute="bottom" constant="21" id="KCJ-aV-aou"/>
-                            <constraint firstItem="yg5-JC-hFn" firstAttribute="trailing" secondItem="nWi-o6-LwK" secondAttribute="trailing" id="M4L-O2-3GL"/>
-                            <constraint firstItem="W3l-fG-wOp" firstAttribute="top" secondItem="jFj-0t-NBQ" secondAttribute="top" id="Z1z-fU-qL6"/>
-                            <constraint firstItem="W3l-fG-wOp" firstAttribute="top" secondItem="2BM-hK-473" secondAttribute="bottom" constant="24" id="eeJ-St-FKU"/>
-                            <constraint firstItem="yg5-JC-hFn" firstAttribute="bottom" secondItem="rjk-Pi-pfW" secondAttribute="top" id="hti-pc-RaA"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jFj-0t-NBQ" secondAttribute="trailing" constant="-1" id="iHv-am-MYW"/>
-                            <constraint firstItem="nWi-o6-LwK" firstAttribute="leading" secondItem="yg5-JC-hFn" secondAttribute="leading" id="kKl-fx-1OM"/>
+                            <constraint firstItem="jFj-0t-NBQ" firstAttribute="trailing" secondItem="2dc-oI-YVt" secondAttribute="trailingMargin" id="5Hn-oo-GOp"/>
+                            <constraint firstItem="jFj-0t-NBQ" firstAttribute="trailing" secondItem="nWi-o6-LwK" secondAttribute="trailing" id="8KN-5l-IwY"/>
+                            <constraint firstItem="nWi-o6-LwK" firstAttribute="top" secondItem="2BM-hK-473" secondAttribute="bottom" constant="37" id="91P-yP-Qa6"/>
+                            <constraint firstItem="W3l-fG-wOp" firstAttribute="leading" secondItem="2dc-oI-YVt" secondAttribute="leadingMargin" constant="-1" id="Esx-JO-MeD"/>
+                            <constraint firstItem="W3l-fG-wOp" firstAttribute="top" secondItem="nWi-o6-LwK" secondAttribute="bottom" constant="8" symbolic="YES" id="FuL-DX-gZQ"/>
+                            <constraint firstItem="jFj-0t-NBQ" firstAttribute="trailing" secondItem="yg5-JC-hFn" secondAttribute="trailing" id="H8f-Dh-G1v"/>
+                            <constraint firstItem="W3l-fG-wOp" firstAttribute="top" secondItem="jFj-0t-NBQ" secondAttribute="top" id="azw-ST-piF"/>
+                            <constraint firstItem="yg5-JC-hFn" firstAttribute="bottom" secondItem="rjk-Pi-pfW" secondAttribute="top" id="h0l-25-4Gc"/>
+                            <constraint firstItem="yg5-JC-hFn" firstAttribute="leading" secondItem="2dc-oI-YVt" secondAttribute="leadingMargin" id="hfV-PM-XYO"/>
+                            <constraint firstItem="nWi-o6-LwK" firstAttribute="leading" secondItem="yg5-JC-hFn" secondAttribute="leading" id="orD-Rw-Msj"/>
+                            <constraint firstItem="yg5-JC-hFn" firstAttribute="top" secondItem="W3l-fG-wOp" secondAttribute="bottom" constant="8" symbolic="YES" id="pGn-gP-M6q"/>
+                            <constraint firstItem="jFj-0t-NBQ" firstAttribute="leading" secondItem="W3l-fG-wOp" secondAttribute="trailing" constant="14" id="vVh-Cq-ZFT"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Find Friends" image="779-users-toolbar-selected" selectedImage="779-users" id="KHs-Bj-KIS"/>
